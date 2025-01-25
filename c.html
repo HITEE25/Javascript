@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chrome Dino Game</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+    }
+
+    #game-area {
+      position: relative;
+      width: 100vw;
+      height: 80vh;
+      background-color: white;
+      border: 2px solid #000;
+      overflow: hidden;
+    }
+
+    .ground {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 5%;
+      background-color: #555;
+      animation: move-ground 2s linear infinite;
+    }
+
+    @keyframes move-ground {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .dino {
+      position: absolute;
+      bottom: 10%;
+      left: 10%;
+      width: 50px;
+      height: 50px;
+      background-color: #333;
+      animation: run 0.5s steps(2) infinite;
+    }
+
+    @keyframes run {
+      from { background-position: 0; }
+      to { background-position: -100px; }
+    }
+
+    .obstacle {
+      position: absolute;
+      bottom: 10%;
+      right: -50px;
+      width: 30px;
+      height: 50px;
+      background-color: #444;
+      animation: move-obstacle 2s linear infinite;
+    }
+
+    @keyframes move-obstacle {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100vw); }
+    }
+
+    .score {
+      position: absolute;
+      top: 5%;
+      right: 5%;
+      font-size: 24px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-area">
+    <div class="ground"></div>
+    <div class="dino"></div>
+    <div class="obstacle"></div>
+    <div class="score">Score: 0</div>
+  </div>
+</body>
+</html>
